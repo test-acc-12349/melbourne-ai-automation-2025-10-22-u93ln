@@ -1,0 +1,653 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Melbourne AI Automation - AI Automation Solutions for Small Business. Fast implementation, scalable, and self-hosted with unlimited updates.">
+    <meta name="keywords" content="AI Automation, Melbourne, Small Business, n8n, Low Cost">
+    <meta name="author" content="Melbourne AI Automation">
+    <meta name="theme-color" content="#ffffff">
+    <title>Melbourne AI Automation - AI Solutions for Small Business</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap');
+        
+        * {
+            font-family: 'Inter', sans-serif;
+        }
+        
+        .smooth-transition {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .smooth-transition-slow {
+            transition: all 500ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .accordion-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 300ms ease-in-out;
+        }
+        
+        .accordion-content.active {
+            max-height: 500px;
+        }
+        
+        .hero-gradient {
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+        }
+        
+        .feature-card-hover {
+            transition: all 300ms cubic-bezier(0.4, 0, 0.2, 1);
+        }
+        
+        .feature-card-hover:hover {
+            transform: translateY(-8px);
+            box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1);
+        }
+        
+        .cta-overlay {
+            background: linear-gradient(135deg, rgba(0, 0, 0, 0.5) 0%, rgba(0, 0, 0, 0.3) 100%);
+        }
+        
+        .star-rating {
+            color: #fbbf24;
+        }
+        
+        @keyframes fadeInUp {
+            from {
+                opacity: 0;
+                transform: translateY(20px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+        
+        .fade-in-up {
+            animation: fadeInUp 600ms ease-out forwards;
+        }
+    </style>
+</head>
+<body class="bg-white text-gray-900">
+    <!-- Navigation Header -->
+    <header class="sticky top-0 z-50 bg-white shadow-sm">
+        <nav class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-4 flex items-center justify-between">
+            <div class="flex items-center">
+                <div class="flex items-center space-x-2">
+                    <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                        <span class="text-white font-bold text-lg">MAI</span>
+                    </div>
+                    <span class="font-bold text-xl text-gray-900 hidden sm:inline">Melbourne AI</span>
+                </div>
+            </div>
+            
+            <div class="hidden md:flex items-center space-x-8">
+                <a href="#features" class="text-gray-700 font-medium hover:text-blue-600 smooth-transition">Features</a>
+                <a href="#benefits" class="text-gray-700 font-medium hover:text-blue-600 smooth-transition">Benefits</a>
+                <a href="#faq" class="text-gray-700 font-medium hover:text-blue-600 smooth-transition">FAQ</a>
+                <a href="#testimonials" class="text-gray-700 font-medium hover:text-blue-600 smooth-transition">Testimonials</a>
+                <a href="https://mai.com" class="bg-blue-600 text-white px-6 py-2 rounded-lg font-medium hover:bg-blue-700 smooth-transition hover:shadow-lg">Get Started</a>
+            </div>
+            
+            <button class="md:hidden p-2 text-gray-700 hover:text-blue-600" aria-label="Toggle menu">
+                <svg class="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 6h16M4 12h16M4 18h16"></path>
+                </svg>
+            </button>
+        </nav>
+    </header>
+
+    <!-- Hero Section -->
+    <section class="hero-gradient py-20 md:py-28 lg:py-32">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto text-center">
+                <h1 class="text-4xl md:text-5xl lg:text-6xl font-bold text-gray-900 leading-tight tracking-tight mb-6">
+                    Melbourne AI Automation
+                </h1>
+                <p class="text-xl md:text-2xl text-gray-700 font-light leading-relaxed mb-8">
+                    AI Automation For Small Business
+                </p>
+                <p class="text-lg text-gray-600 leading-relaxed mb-10 max-w-2xl mx-auto">
+                    Transform your small business with intelligent automation solutions. Reduce manual tasks, increase productivity, and scale your operations without breaking the bank.
+                </p>
+                <div class="flex flex-col sm:flex-row gap-4 justify-center">
+                    <a href="https://mai.com" class="bg-blue-600 text-white px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 smooth-transition hover:shadow-lg hover:scale-105 inline-block">
+                        Start Your Automation Journey
+                    </a>
+                    <a href="#features" class="border-2 border-blue-600 text-blue-600 px-8 py-4 rounded-lg font-semibold text-lg hover:bg-blue-50 smooth-transition inline-block">
+                        Learn More
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features Section -->
+    <section id="features" class="py-20 md:py-24 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+                    Powerful Features Built for Your Business
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Everything you need to automate your workflows and streamline operations
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Feature 1: Low Cost -->
+                <div class="feature-card-hover bg-white border border-gray-200 rounded-xl p-8 hover:border-blue-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M12 8c-1.657 0-3 .895-3 2s1.343 2 3 2 3 .895 3 2-1.343 2-3 2m0-8c1.11 0 2.08.402 2.599 1M12 8V7m0 1v8m0 0v1m0-1c-1.11 0-2.08-.402-2.599-1M21 12a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Low Cost</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Enterprise-grade automation without the enterprise price tag. Our affordable solutions are designed specifically for small businesses and startups looking to maximize ROI while minimizing expenses.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>Transparent, predictable pricing</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>No hidden setup or maintenance fees</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>Flexible plans that grow with you</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 2: Self Host -->
+                <div class="feature-card-hover bg-white border border-gray-200 rounded-xl p-8 hover:border-blue-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M5 12h14M5 12a2 2 0 01-2-2V6a2 2 0 012-2h14a2 2 0 012 2v4a2 2 0 01-2 2M5 12a2 2 0 00-2 2v4a2 2 0 002 2h14a2 2 0 002-2v-4a2 2 0 00-2-2m-2-4h.01M17 16h.01"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Self Hosted</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Maintain complete control over your automation infrastructure. Host your workflows on your own servers for maximum security, compliance, and data privacy without relying on third-party cloud providers.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>Full data ownership and control</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>Enhanced security and compliance</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>No vendor lock-in</span>
+                        </li>
+                    </ul>
+                </div>
+                
+                <!-- Feature 3: Unlimited Updates -->
+                <div class="feature-card-hover bg-white border border-gray-200 rounded-xl p-8 hover:border-blue-300">
+                    <div class="w-12 h-12 bg-blue-100 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-6 h-6 text-blue-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M4 4v5h.582m15.356 2A8.001 8.001 0 004.582 9m0 0H9m11 11v-5h-.581m0 0a8.003 8.003 0 01-15.357-2m15.357 2H15"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Unlimited Updates</h3>
+                    <p class="text-gray-600 leading-relaxed mb-4">
+                        Never worry about version constraints or update limitations. Receive continuous improvements, new features, and security patches at no additional cost, ensuring your automation stays modern and secure.
+                    </p>
+                    <ul class="space-y-2 text-sm text-gray-600">
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>Continuous feature development</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>Regular security patches included</span>
+                        </li>
+                        <li class="flex items-start">
+                            <span class="text-blue-600 mr-3 font-bold">✓</span>
+                            <span>Always access latest improvements</span>
+                        </li>
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Benefits Section -->
+    <section id="benefits" class="py-20 md:py-24 lg:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+                    Why Choose Melbourne AI Automation?
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Experience the transformative power of intelligent automation tailored for your business
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+                <!-- Benefit 1: Fast Implementation -->
+                <div class="feature-card-hover bg-white rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-green-400 to-green-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M13 10V3L4 14h7v7l9-11h-7z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Fast Implementation</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Get your automation workflows up and running in days, not months. Our streamlined deployment process and expert guidance ensure rapid time-to-value so you can start seeing results immediately.
+                    </p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-sm text-green-600 font-semibold">Average deployment: 3-5 days</p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 2: Leverages n8n -->
+                <div class="feature-card-hover bg-white rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-purple-400 to-purple-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Leverages n8n</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Built on n8n, the industry-leading open-source workflow automation platform. Access thousands of pre-built integrations and enjoy the reliability of battle-tested technology trusted by enterprises worldwide.
+                    </p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-sm text-purple-600 font-semibold">5000+ integrations available</p>
+                    </div>
+                </div>
+                
+                <!-- Benefit 3: Scalable -->
+                <div class="feature-card-hover bg-white rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="w-14 h-14 bg-gradient-to-br from-orange-400 to-orange-600 rounded-lg flex items-center justify-center mb-6">
+                        <svg class="w-7 h-7 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M7 16a4 4 0 01-.88-7.903A5 5 0 1115.9 6L16 6a5 5 0 011 9.9M15 13l-3-3m0 0l-3 3m3-3v12"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-xl font-bold text-gray-900 mb-3">Scalable Solutions</h3>
+                    <p class="text-gray-600 leading-relaxed">
+                        Start small and grow with confidence. Our infrastructure scales seamlessly from handling dozens to millions of automated transactions, ensuring your automation grows with your business without performance degradation.
+                    </p>
+                    <div class="mt-6 pt-6 border-t border-gray-200">
+                        <p class="text-sm text-orange-600 font-semibold">Handles unlimited workflows</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA Section with Background -->
+    <section class="relative py-24 md:py-32 overflow-hidden">
+        <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1552664730-d307ca884978?w=1200&h=600&fit=crop'); background-attachment: fixed;"></div>
+        <div class="absolute inset-0 cta-overlay"></div>
+        <div class="relative max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 text-center">
+            <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-white tracking-tight mb-6">
+                Ready to Transform Your Business?
+            </h2>
+            <p class="text-lg md:text-xl text-gray-100 leading-relaxed mb-10 max-w-2xl mx-auto">
+                Join small businesses across Melbourne who are already automating their workflows and saving countless hours every week.
+            </p>
+            <a href="https://mai.com" class="inline-block bg-blue-600 text-white px-10 py-4 rounded-lg font-semibold text-lg hover:bg-blue-700 smooth-transition hover:shadow-lg hover:scale-105">
+                Get Started Today
+            </a>
+        </div>
+    </section>
+
+    <!-- About Us Section -->
+    <section class="py-20 md:py-24 lg:py-28 bg-white">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-3xl mx-auto">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-12 text-center">
+                    About Melbourne AI Automation
+                </h2>
+                
+                <div class="space-y-8">
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        Melbourne AI Automation was founded in 2023 with a simple mission: to democratize artificial intelligence and automation technology for small businesses. Our founders recognized that while large enterprises had access to sophisticated automation tools, small business owners were left struggling with manual processes and outdated systems. We built Melbourne AI Automation to bridge this gap, combining cutting-edge technology with practical, affordable solutions tailored specifically for the unique challenges small businesses face in today's competitive landscape.
+                    </p>
+                    
+                    <p class="text-lg text-gray-700 leading-relaxed">
+                        We believe that every business, regardless of size or budget, deserves access to world-class automation technology. Our core values—accessibility, transparency, and customer success—guide everything we do. We're committed to providing not just software, but a complete partnership that includes expert guidance, continuous support, and a community of fellow entrepreneurs all working toward the same goal: working smarter, not harder. By leveraging the power of n8n and modern automation frameworks, we empower our clients to reclaim their time and focus on what truly matters: growing their business.
+                    </p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Testimonials Section -->
+    <section id="testimonials" class="py-20 md:py-24 lg:py-28 bg-gray-50">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="max-w-2xl mx-auto text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+                    What Our Clients Say
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Real results from real businesses using Melbourne AI Automation
+                </p>
+            </div>
+            
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-2 gap-8">
+                <!-- Testimonial 1 -->
+                <div class="feature-card-hover bg-white rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex space-x-1">
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        "Melbourne AI Automation has completely transformed how we manage customer orders. What used to take our team 4 hours every morning to process manually now happens automatically overnight. We've cut our administrative overhead by 60% and can focus on actually growing our business. The team was incredibly helpful during setup, and the ongoing support has been fantastic."
+                    </p>
+                    <div class="pt-6 border-t border-gray-200">
+                        <p class="font-semibold text-gray-900">Sarah Mitchell</p>
+                        <p class="text-sm text-gray-600">Owner, Mitchell's E-commerce Store</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 2 -->
+                <div class="feature-card-hover bg-white rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex space-x-1">
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        "As a marketing agency with limited IT resources, we were hesitant about automation. But the Melbourne AI team made it so simple. They helped us automate our client reporting, social media scheduling, and invoice generation. We've reclaimed about 15 hours per week that we now spend on strategy and creative work. Best investment we've made this year."
+                    </p>
+                    <div class="pt-6 border-t border-gray-200">
+                        <p class="font-semibold text-gray-900">James Chen</p>
+                        <p class="text-sm text-gray-600">Managing Director, Chen Marketing Group</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 3 -->
+                <div class="feature-card-hover bg-white rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex space-x-1">
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        "I run a small accounting practice and was drowning in data entry. Melbourne AI Automation integrated seamlessly with our existing software stack and now handles invoice processing, expense categorization, and client notifications automatically. The self-hosted option gave me peace of mind knowing my client data stays secure. Highly recommend to any small business owner."
+                    </p>
+                    <div class="pt-6 border-t border-gray-200">
+                        <p class="font-semibold text-gray-900">Emma Rodriguez</p>
+                        <p class="text-sm text-gray-600">Founder, Rodriguez Accounting Solutions</p>
+                    </div>
+                </div>
+                
+                <!-- Testimonial 4 -->
+                <div class="feature-card-hover bg-white rounded-xl p-8 shadow-md hover:shadow-xl border border-gray-100">
+                    <div class="flex items-center mb-4">
+                        <div class="flex space-x-1">
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                            <span class="star-rating text-xl">★</span>
+                        </div>
+                    </div>
+                    <p class="text-gray-700 leading-relaxed mb-6">
+                        "The pricing is incredibly transparent and fair for what you get. We started with one workflow and have since implemented five different automation processes across our operations. The system scales perfectly with our growth, and the unlimited updates mean we're always getting new features and improvements at no extra cost. Exceptional value for money."
+                    </p>
+                    <div class="pt-6 border-t border-gray-200">
+                        <p class="font-semibold text-gray-900">Michael Thompson</p>
+                        <p class="text-sm text-gray-600">Operations Manager, Thompson Logistics</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ Section -->
+    <section id="faq" class="py-20 md:py-24 lg:py-28 bg-white">
+        <div class="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="text-center mb-16">
+                <h2 class="text-3xl md:text-4xl lg:text-5xl font-bold text-gray-900 tracking-tight mb-4">
+                    Frequently Asked Questions
+                </h2>
+                <p class="text-lg text-gray-600 leading-relaxed">
+                    Everything you need to know about Melbourne AI Automation
+                </p>
+            </div>
+            
+            <div class="space-y-4">
+                <!-- FAQ Item 1 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 bg-gray-50 hover:bg-gray-100 smooth-transition flex items-center justify-between" onclick="toggleAccordion(this)">
+                        <span>What is Melbourne AI Automation and how does it work?</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="px-6 py-4 text-gray-700 leading-relaxed">
+                            <p>Melbourne AI Automation is a comprehensive automation platform built on n8n that helps small businesses streamline their operations through intelligent workflow automation. Our system connects your existing tools and applications, then automatically handles repetitive tasks like data entry, invoice processing, customer notifications, and report generation. You define the workflows once, and they run 24/7 without manual intervention, freeing up your team to focus on strategic, high-value work.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 2 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 bg-gray-50 hover:bg-gray-100 smooth-transition flex items-center justify-between" onclick="toggleAccordion(this)">
+                        <span>How secure is my data with self-hosted automation?</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="px-6 py-4 text-gray-700 leading-relaxed">
+                            <p>Self-hosted automation offers superior security compared to cloud-based solutions. Your data never leaves your servers, giving you complete control over storage, access, and compliance. You can implement your own security policies, encryption standards, and access controls. We provide comprehensive documentation and best practices for securing your deployment, and our support team can guide you through security configuration. This approach is particularly valuable for businesses handling sensitive customer data or operating in regulated industries.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 3 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 bg-gray-50 hover:bg-gray-100 smooth-transition flex items-center justify-between" onclick="toggleAccordion(this)">
+                        <span>What integrations are available, and can you connect our custom software?</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="px-6 py-4 text-gray-700 leading-relaxed">
+                            <p>Melbourne AI Automation supports over 5,000 pre-built integrations with popular business tools including Salesforce, HubSpot, Shopify, QuickBooks, Slack, Microsoft Teams, Google Workspace, and many more. Beyond these pre-built connections, our platform can integrate with virtually any software through APIs, webhooks, and custom connectors. If you have custom-built software or proprietary systems, our technical team can help you create custom integrations. We work with your existing tech stack rather than forcing you to replace it.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 4 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 bg-gray-50 hover:bg-gray-100 smooth-transition flex items-center justify-between" onclick="toggleAccordion(this)">
+                        <span>How long does implementation take, and what support do you provide?</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="px-6 py-4 text-gray-700 leading-relaxed">
+                            <p>Most implementations are completed within 3-5 business days, depending on complexity. We provide comprehensive support throughout the process, including initial consultation to understand your needs, workflow design and configuration, integration setup, testing, and training for your team. Post-launch, we offer ongoing technical support, proactive monitoring, and regular optimization recommendations. Our team is available to help troubleshoot issues, add new workflows, or adjust existing ones as your business evolves. You're never alone in your automation journey.</p>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- FAQ Item 5 -->
+                <div class="border border-gray-200 rounded-lg overflow-hidden">
+                    <button class="faq-toggle w-full px-6 py-4 text-left font-semibold text-gray-900 bg-gray-50 hover:bg-gray-100 smooth-transition flex items-center justify-between" onclick="toggleAccordion(this)">
+                        <span>What's included in "Unlimited Updates" and how often do you release new features?</span>
+                        <svg class="w-5 h-5 text-gray-600 transform transition-transform duration-300" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                            <path stroke-linecap="round" stroke-linejoin="round" stroke-width="2" d="M19 14l-7 7m0 0l-7-7m7 7V3"></path>
+                        </svg>
+                    </button>
+                    <div class="accordion-content bg-white">
+                        <div class="px-6 py-4 text-gray-700 leading-relaxed">
+                            <p>Unlimited Updates means you receive all platform improvements, new features, security patches, and integration additions at no additional cost. We release updates continuously throughout the year, typically with major feature releases quarterly and security patches monthly. Your platform automatically stays current with all the latest capabilities. There's no "version lock-in" where you're stuck on old software—you always have access to the newest tools and improvements. This approach ensures your automation infrastructure remains secure, efficient, and competitive without unexpected upgrade costs.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="bg-gray-900 text-gray-300 py-16 md:py-20">
+        <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-12 mb-12">
+                <!-- Company Info -->
+                <div>
+                    <div class="flex items-center space-x-2 mb-6">
+                        <div class="w-10 h-10 bg-gradient-to-br from-blue-600 to-blue-700 rounded-lg flex items-center justify-center">
+                            <span class="text-white font-bold text-lg">MAI</span>
+                        </div>
+                        <span class="font-bold text-lg text-white">Melbourne AI</span>
+                    </div>
+                    <p class="text-gray-400 text-sm leading-relaxed">
+                        Transforming small businesses through intelligent automation solutions.
+                    </p>
+                </div>
+                
+                <!-- Product Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Product</h4>
+                    <ul class="space-y-3">
+                        <li><a href="#features" class="text-gray-400 hover:text-blue-400 smooth-transition">Features</a></li>
+                        <li><a href="#benefits" class="text-gray-400 hover:text-blue-400 smooth-transition">Benefits</a></li>
+                        <li><a href="#faq" class="text-gray-400 hover:text-blue-400 smooth-transition">FAQ</a></li>
+                        <li><a href="https://mai.com" class="text-gray-400 hover:text-blue-400 smooth-transition">Pricing</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Resources Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Resources</h4>
+                    <ul class="space-y-3">
+                        <li><a href="blog.html" class="text-gray-400 hover:text-blue-400 smooth-transition">Blog</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition">Documentation</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition">Case Studies</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition">Support</a></li>
+                    </ul>
+                </div>
+                
+                <!-- Legal Links -->
+                <div>
+                    <h4 class="text-white font-semibold mb-6">Legal</h4>
+                    <ul class="space-y-3">
+                        <li><a href="privacy.html" class="text-gray-400 hover:text-blue-400 smooth-transition">Privacy Policy</a></li>
+                        <li><a href="terms.html" class="text-gray-400 hover:text-blue-400 smooth-transition">Terms of Service</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition">Cookie Policy</a></li>
+                        <li><a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition">Contact Us</a></li>
+                    </ul>
+                </div>
+            </div>
+            
+            <!-- Contact Section -->
+            <div class="border-t border-gray-800 pt-12 mb-12">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Get in Touch</h4>
+                        <p class="text-gray-400 text-sm mb-2">
+                            Email: <a href="mailto:admin@mai.com" class="text-blue-400 hover:text-blue-300 smooth-transition">admin@mai.com</a>
+                        </p>
+                        <p class="text-gray-400 text-sm">
+                            Melbourne, Victoria, Australia
+                        </p>
+                    </div>
+                    <div>
+                        <h4 class="text-white font-semibold mb-4">Follow Us</h4>
+                        <div class="flex space-x-4">
+                            <a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition" aria-label="LinkedIn">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition" aria-label="Twitter">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M23 3a10.9 10.9 0 01-3.14 1.53 4.48 4.48 0 00-7.86 3v1A10.66 10.66 0 013 4s-4 9 5 13a11.64 11.64 0 01-7 2s9 5 20 5a9.5 9.5 0 00-9-5.5c4.75 2.25 7-7 7-7a10.6 10.6 0 01-9-5.5z"></path>
+                                </svg>
+                            </a>
+                            <a href="#" class="text-gray-400 hover:text-blue-400 smooth-transition" aria-label="Facebook">
+                                <svg class="w-6 h-6" fill="currentColor" viewBox="0 0 24 24">
+                                    <path d="M18 2h-3a6 6 0 00-6 6v3H7v4h2v8h4v-8h3l1-4h-4V8a2 2 0 012-2h3z"></path>
+                                </svg>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- Bottom Footer -->
+            <div class="border-t border-gray-800 pt-8 flex flex-col md:flex-row items-center justify-between">
+                <p class="text-gray-400 text-sm mb-4 md:mb-0">
+                    &copy; 2025 Melbourne AI Automation. All rights reserved.
+                </p>
+                <p class="text-gray-400 text-sm">
+                    Built with <span class="text-red-500">❤</span> for small business success
+                </p>
+            </div>
+        </div>
+    </footer>
+
+    <script>
+        function toggleAccordion(button) {
+            const content = button.nextElementSibling;
+            const icon = button.querySelector('svg');
+            
+            // Close other open accordions
+            document.querySelectorAll('.accordion-content.active').forEach(item => {
+                if (item !== content) {
+                    item.classList.remove('active');
+                    item.previousElementSibling.querySelector('svg').style.transform = 'rotate(0deg)';
+                }
+            });
+            
+            // Toggle current accordion
+            content.classList.toggle('active');
+            icon.style.transform = content.classList.contains('active') ? 'rotate(180deg)' : 'rotate(0deg)';
+        }
+        
+        // Mobile menu functionality
+        document.querySelector('button[aria-label="Toggle menu"]')?.addEventListener('click', function() {
+            const menu = document.querySelector('.mobile-menu');
+            if (menu) {
+                menu.classList.toggle('hidden');
+            }
+        });
+        
+        // Smooth scroll behavior
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function(e) {
+                e.preventDefault();
+                const target = document.querySelector(this.getAttribute('href'));
+                if (target) {
+                    target.scrollIntoView({
+                        behavior: 'smooth',
+                        block: 'start'
+                    });
+                }
+            });
+        });
+    </script>
+</body>
+</html>
